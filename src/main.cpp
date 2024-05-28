@@ -2,21 +2,27 @@
 
 const unsigned int ANCHO_VENT = 800;
 const unsigned int ALTO_VENT = 600;
-const unsigned int FRAMERATE = 60;
+const unsigned int FRAMERATE = 1;
 
 void read_events(RenderWindow &window);
 
-int main() {
-  float ratio = 15;
+int main()
+{
+  float ratio = 75;
   int sides = 3;
 
   RenderWindow window = RenderWindow{{ANCHO_VENT, ALTO_VENT}, "Unidad 1 - Taller de Videojuegos"};
   window.setFramerateLimit(FRAMERATE);
 
-  CircleShape poligon = CircleShape(ratio, sides);
-  poligon.setPosition({ANCHO_VENT/2-ratio/2, ALTO_VENT/2-ratio/2});
+  CircleShape poligon;
 
-  while (window.isOpen()) {
+  while (window.isOpen())
+  {
+
+    sides < 15 && sides++;
+    poligon = CircleShape(ratio, sides);
+    poligon.setPosition({ANCHO_VENT / 2 - ratio, ALTO_VENT / 2 - ratio});
+
     read_events(window);
     window.clear();
     window.draw(poligon);
@@ -24,14 +30,14 @@ int main() {
   }
 }
 
-void read_events(RenderWindow &window) {
+void read_events(RenderWindow &window)
+{
   Event event = Event();
-  while (window.pollEvent(event)) {
-    if (event.type == Event::Closed) {
+  while (window.pollEvent(event))
+  {
+    if (event.type == Event::Closed)
+    {
       window.close();
     }
-
   }
 }
-
-
