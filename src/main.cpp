@@ -14,7 +14,7 @@ int main() {
   window.setFramerateLimit(FRAMERATE);
 
   CircleShape poligon = CircleShape(ratio, sides);
-  poligon.setPosition({ANCHO_VENT/2-ratio/2, ALTO_VENT/2-ratio/2});
+  poligon.setPosition({ANCHO_VENT/2-ratio, ALTO_VENT/2-ratio});
 
   while (window.isOpen()) {
     read_events(window);
